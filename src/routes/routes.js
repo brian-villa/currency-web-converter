@@ -2,6 +2,17 @@ const router = require("express").Router()
 const axios = require("axios")
 
 
+
+router.get('/api', async (req, res) => {
+    try {
+        const { data } = await axios("https://economia.awesomeapi.com.br/json/all")
+
+        res.json(data)
+    } catch (error) {
+        res.send(error)
+    }
+})
+
 router.get('/dolar', async (req, res) => {
 
     try {
@@ -19,7 +30,7 @@ router.get('/dolar', async (req, res) => {
 
 router.get('/euro', async (req, res) => {
     try {
-        const { data } = await axios("https://economia.awesomeapi.com.br/last/EUR-BRL")
+        const { data } = await axios("https://economia.awesomeapi.com.br/json/last/EUR-BRL")
         
         console.log(data.EURBRL)
 
@@ -33,7 +44,7 @@ router.get('/euro', async (req, res) => {
 
 router.get('/btc', async (req, res) => {
     try {
-        const { data } = await axios("https://economia.awesomeapi.com.br/last/BTC-BRL")
+        const { data } = await axios("https://economia.awesomeapi.com.br/json/last/BTC-BRL")
         
         console.log(data.BTCBRL)
 

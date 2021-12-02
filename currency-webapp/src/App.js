@@ -1,10 +1,21 @@
-import React from "react";
+import { 
+    BrowserRouter as Router,
+    Switch, 
+    Route,
+} from "react-router-dom";
+import Currency from "./Currency";
+    
 
 function App() {
+    
     return (
-        <div>
-            <h1>Site Conversões</h1>
-        </div>
+        <Router>
+            <Switch>
+                <Route path="/">
+                    <Currency />
+                </Route>
+            </Switch>
+        </Router>
     )
 }
 
