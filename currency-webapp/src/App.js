@@ -3,19 +3,28 @@ import {
     Switch, 
     Route,
 } from "react-router-dom";
-import Currency from "./Currency";
+
+import TemplateDefault from "./templates/Default"
+
+import Currency from "./pages/Currency";
+import Home from "./pages/Home";
     
 
 function App() {
     
     return (
-        <Router>
-            <Switch>
-                <Route path="/">
-                    <Currency />
-                </Route>
-            </Switch>
-        </Router>
+        <TemplateDefault>
+            <Router>
+                <Switch>
+                    <Route path="/dolarhoje">
+                        <Currency />
+                    </Route>
+                    <Route path="/">
+                        <Home />
+                    </Route>
+                </Switch>
+            </Router>
+        </TemplateDefault>
     )
 }
 
