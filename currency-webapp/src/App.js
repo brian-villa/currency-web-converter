@@ -6,16 +6,24 @@ import {
 
 import TemplateDefault from "./templates/Default"
 
-import Currency from "./pages/Currency";
-import Home from "./pages/Home";
+import Currency from "./pages/CurrencyDolar"
+import CurrencyEuro from "./pages/CurrencyEuro"
+import CurrencyBTC from "./pages/CurrencyBTC"
+import Home from "./pages/Home"
     
 
 function App() {
     
     return (
-        <TemplateDefault>
-            <Router>
+        <Router>
+            <TemplateDefault>
                 <Switch>
+                    <Route path="/bitcoinhoje">
+                        <CurrencyBTC />
+                    </Route>
+                    <Route path="/eurohoje">
+                        <CurrencyEuro />
+                    </Route>
                     <Route path="/dolarhoje">
                         <Currency />
                     </Route>
@@ -23,8 +31,8 @@ function App() {
                         <Home />
                     </Route>
                 </Switch>
-            </Router>
-        </TemplateDefault>
+            </TemplateDefault>
+        </Router>
     )
 }
 
